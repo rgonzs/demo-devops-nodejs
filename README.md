@@ -22,6 +22,12 @@ Install dependencies.
 npm i
 ```
 
+### Database
+
+The database is generated as a file in the main path when the project is first run, and its name is `dev.sqlite`.
+
+Consider giving access permissions to the file for proper functioning.
+
 ## Usage
 
 To run tests you can use this command.
