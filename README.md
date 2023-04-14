@@ -48,9 +48,94 @@ Open http://localhost:8000/api/users with your browser to see the result.
 
 These services can perform,
 
-- Create User
-- Get Users
-- Get User
+#### Create User
+
+To create a user, the endpoint **/api/users** must be consumed with the following parameters:
+
+```bash
+  Method: POST
+```
+
+```json
+{
+    "dni": "dni",
+    "name": "name"
+}
+```
+
+If the response is successful, the service will return an HTTP Status 200 and a message with the following structure:
+
+```json
+{
+    "id": 1,
+    "dni": "dni",
+    "name": "name"
+}
+```
+
+If the response is unsuccessful, we will receive status 400 and the following message:
+
+```json
+{
+    "error": "error"
+}
+```
+
+#### Get Users
+
+To get all users, the endpoint **/api/users** must be consumed with the following parameters:
+
+```bash
+  Method: GET
+```
+
+If the response is successful, the service will return an HTTP Status 200 and a message with the following structure:
+
+```json
+[
+    {
+        "id": 1,
+        "dni": "dni",
+        "name": "name"
+    }
+]
+```
+
+#### Get User
+
+To get an user, the endpoint **/api/users/<id>** must be consumed with the following parameters:
+
+```bash
+  Method: GET
+```
+
+If the response is successful, the service will return an HTTP Status 200 and a message with the following structure:
+
+```json
+{
+    "id": 1,
+    "dni": "dni",
+    "name": "name"
+}
+```
+
+If the user id does not exist, we will receive status 404 and the following message:
+
+```json
+{
+    "error": "User not found: <id>"
+}
+```
+
+If the response is unsuccessful, we will receive status 400 and the following message:
+
+```json
+{
+    "errors": [
+        "error"
+    ]
+}
+```
 
 ## License
 
