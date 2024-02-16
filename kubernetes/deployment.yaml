@@ -26,7 +26,13 @@ spec:
         envFrom:
         - secretRef:
             name: demo-devops-nodejs
-        resources: {}
+        resources:
+          requests:
+            memory: 256Mi
+            cpu: 0.2m
+          limits:
+            memory: 512Mi
+            cpu: 0.4m
         securityContext:
           allowPrivilegeEscalation: false
           readOnlyRootFilesystem: false
