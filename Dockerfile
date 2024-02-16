@@ -11,5 +11,6 @@ COPY --chown=appuser:appuser package*.json .
 RUN npm ci
 # Copiamos el codigo de la  aplicacion nodejs
 COPY --chown=appuser:appuser . .
+# Ejecutamos el app
 ENTRYPOINT [ "npm" ]
 CMD [ "run", "start" ]

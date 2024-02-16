@@ -2,6 +2,7 @@ on:
   push:
 jobs:
   test_app:
+    name: Testing Application
     runs-on: ubuntu-latest
     steps:
       - name: Test NodeJS app

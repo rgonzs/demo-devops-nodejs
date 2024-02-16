@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: demo-devops-nodejs
+  namespace: devops
   name: demo-devops-nodejs
 spec:
   replicas: 1
@@ -20,11 +21,15 @@ spec:
         runAsGroup: 1010
         fsGroup: 1010
       containers:
-      - image: demo-devops-nodejs
+      - image: rentgonz/demo-devops-nodejs:latest
         name: demo-devops-nodejs
+        envFrom:
+        - secretRef:
+            name: demo-devops-nodejs
         resources: {}
         securityContext:
           allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: false
         volumeMounts:
         - name: tmp
           mountPath: /tmp

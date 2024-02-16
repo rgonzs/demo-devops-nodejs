@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo-devops-nodejs
+  namespace: devops
+spec:
+  rules:
+  - host: demo-devops-nodejs.kodelab.xyz
+    http:
+      paths:
+      - backend:
+          service:
+            name: demo-devops-nodejs
+            port:
+              number: 8000
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - demo-devops-nodejs.kodelab.xyz
+    secretName: demo-devops-nodejs.kodelab.xyz

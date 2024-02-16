@@ -12,11 +12,11 @@ app.use('/api/users', usersRouter)
 
 app.get('/healthz', (_, res) => {
     sequelize.authenticate().then(() => {
-        res.statusCode(200).send('up')
+        res.status(200).send('up')
     }).catch(err => {
         console.error('Error de conexion a bd')
         console.error(err)
-        res.statusCode(500).send('down')
+        res.status(500).send('down')
     })
 })
 
