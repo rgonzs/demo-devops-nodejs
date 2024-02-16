@@ -1,0 +1,5 @@
+README.md
+*.test.js
+.env
+.github
+kubernetes

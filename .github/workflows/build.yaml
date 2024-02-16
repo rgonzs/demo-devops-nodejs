@@ -1,0 +1,8 @@
+on:
+  push:
+jobs:
+  test_app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test NodeJS app
+        run: npm run test

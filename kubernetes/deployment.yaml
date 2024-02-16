@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: demo-devops-nodejs
+  name: demo-devops-nodejs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-devops-nodejs
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: demo-devops-nodejs
+    spec:
+      securityContext:
+        runAsUser: 1010
+        runAsGroup: 1010
+        fsGroup: 1010
+      containers:
+      - image: demo-devops-nodejs
+        name: demo-devops-nodejs
+        resources: {}
+        securityContext:
+          allowPrivilegeEscalation: false
+        volumeMounts:
+        - name: tmp
+          mountPath: /tmp
+      volumes:
+      - name: tmp
+        emptyDir: {}
