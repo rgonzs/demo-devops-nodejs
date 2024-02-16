@@ -40,9 +40,9 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Define image tag from commit sha
         run: |
-          IMAGE_TAG=`echo ${{ GITHUB_SHA }} | cut -b -10`
+          IMAGE_TAG=`echo ${GITHUB_SHA} | cut -b -10`
           echo IMAGE_TAG=$IMAGE_TAG >> "$GITHUB_ENV"
-          IMAGE_REPO=`echo ${{ GITHUB_REPOSITORY }} | cut -d '/' -f 2`
+          IMAGE_REPO=`echo ${GITHUB_REPOSITORY} | cut -d '/' -f 2`
           echo IMAGE_REPO=$IMAGE_REPO >> "$GITHUB_ENV"
       - name: Build and push
         uses: docker/build-push-action@v5
