@@ -8,6 +8,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '18'
-      - run: npm ci
+      - run: pwd; ls -la
       - name: Test NodeJS app
         run: npm run test
