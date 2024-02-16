@@ -8,7 +8,7 @@ USER appuser
 WORKDIR /app
 # Instalamos dependencias 
 COPY --chown=appuser:appuser package*.json .
-RUN npm ci
+RUN npm ci --production
 # Copiamos el codigo de la  aplicacion nodejs
 COPY --chown=appuser:appuser . .
 # Ejecutamos el app
