@@ -20,7 +20,7 @@ spec:
         runAsGroup: 1010
         fsGroup: 1010
       containers:
-      - image: rentgonz/demo-devops-nodejs:b2ef1cd4e5
+      - image: rentgonz/demo-devops-nodejs:fe98a8b98c
         name: demo-devops-nodejs
         ports:
         - name: liveness-port
@@ -58,10 +58,10 @@ spec:
         resources:
           requests:
             memory: 256Mi
-            cpu: 0.2m
+            cpu: 200m
           limits:
             memory: 512Mi
-            cpu: 0.4m
+            cpu: 400m
             ephemeral-storage: "1Gi"
         securityContext:
           allowPrivilegeEscalation: false
