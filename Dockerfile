@@ -10,7 +10,7 @@ WORKDIR /app
 COPY --chown=root:root --chmod=644 package*.json .
 RUN npm ci --production --ignore-scripts
 # Copiamos el codigo de la  aplicacion nodejs
-COPY --chown=appuser:appuser --chmod=644 . .
+COPY --chown=appuser:appuser --chmod=700 . .
 # Ejecutamos el app
 ENTRYPOINT [ "npm" ]
 CMD [ "run", "start" ]
