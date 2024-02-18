@@ -82,7 +82,7 @@ jobs:
 
   deploy:
     name: Deploy to kubernetes
-    needs: [validate]
+    needs: [validate, build]
     runs-on: ubuntu-latest
     env:
       IMAGE_TAG: ${{ needs.build.outputs.IMAGE_TAG }}
