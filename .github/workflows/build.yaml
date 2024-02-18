@@ -89,7 +89,6 @@ jobs:
       IMAGE_REPO: ${{ needs.build.outputs.IMAGE_REPO }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions-hub/kubectl@master
       - name: AWS Login
         uses: aws-actions/configure-aws-credentials@v4
         with:
