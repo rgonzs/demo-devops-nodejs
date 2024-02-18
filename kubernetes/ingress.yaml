@@ -3,7 +3,11 @@ kind: Ingress
 metadata:
   name: demo-devops-nodejs
   namespace: devops
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
 spec:
+  ingressClassName: alb
   rules:
   - host: demo-devops-nodejs.kodelab.xyz
     http:
