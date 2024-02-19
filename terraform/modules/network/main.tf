@@ -90,10 +90,10 @@ resource "aws_route_table" "rt_web" {
 
 resource "aws_route_table" "rt_app" {
   vpc_id = aws_vpc.devops_vpc.id
-  # route {
-  #   cidr_block     = "0.0.0.0/0"
-  #   nat_gateway_id = aws_nat_gateway.devops_natgw.id
-  # }
+  route {
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.devops_natgw.id
+  }
   tags = {
     "Name" = "devops-vpc-rt-app"
   }
@@ -129,15 +129,15 @@ resource "aws_route_table_association" "rt_as_app_c" {
   route_table_id = aws_route_table.rt_app.id
 }
 
-# resource "aws_eip" "devops_eip" {
-#   depends_on = [aws_internet_gateway.devops_igw]
-# }
+resource "aws_eip" "devops_eip" {
+  depends_on = [aws_internet_gateway.devops_igw]
+}
 
-# resource "aws_nat_gateway" "devops_natgw" {
-#   allocation_id = aws_eip.devops_eip.id
-#   depends_on    = [aws_internet_gateway.devops_igw]
-#   subnet_id     = aws_subnet.subnet_web_a.id
-#   tags = {
-#     "Name" = "devops-natgw-a"
-#   }
-# }
+resource "aws_nat_gateway" "devops_natgw" {
+  allocation_id = aws_eip.devops_eip.id
+  depends_on    = [aws_internet_gateway.devops_igw]
+  subnet_id     = aws_subnet.subnet_web_a.id
+  tags = {
+    "Name" = "devops-natgw-a"
+  }
+}
