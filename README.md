@@ -202,6 +202,12 @@ The pipeline do the next actions:
 - scan docker image
 - deploy
 
+#### Capturas.
+
+![EKS console](docs/eks_console.png)
+![EKS Nodes](docs/eks_nodes.png)
+![ALV](docs/alb.png)
+
 ## License
 
 Copyright © 2023 Devsu. All rights reserved.
