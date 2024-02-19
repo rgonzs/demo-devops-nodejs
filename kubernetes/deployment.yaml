@@ -20,7 +20,7 @@ spec:
         runAsGroup: 1010
         fsGroup: 1010
       containers:
-      - image: rentgonz/demo-devops-nodejs:fe98a8b98c
+      - image: rentgonz/demo-devops-nodejs:77ff7d8d7a
         name: demo-devops-nodejs
         ports:
         - name: liveness-port
